@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrottFix - Pièces Détachées pour Trottinettes Électriques</title>
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        .modal { display: none; }
+        .modal.active { display: flex; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wider text-cyan-400">⚡ TrottFix</a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="#produits" class="hover:text-cyan-400 transition">Boutique</a>
+                <a href="#Pourquoi-nous" class="hover:text-cyan-400 transition">Pourquoi nous ?</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+            </div>
+            <button onclick="ouvrirPanier()" class="relative bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-full font-semibold transition text-slate-900">
+                🛒 Panier (<span id="panier-compteur">0</span>)
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-slate-900 text-white py-20 text-center relative overflow-hidden px-4">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Réparez votre trottinette au <span class="text-cyan-400">meilleur prix</span></h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8">Pièces de rechange certifiées pour Xiaomi, Ninebot et les plus grandes marques. Livraison gratuite.</p>
+            <a href="#produits" class="bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-bold px-8 py-4 rounded-lg text-lg shadow-lg transition">Voir les pièces indispensables</a>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-transparent to-slate-900 opacity-50"></div>
+    </header>
+
+    <!-- Avantages -->
+    <section id="Pourquoi-nous" class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">🛠️</div>
+            <h3 class="text-xl font-bold mb-2">Qualité Validée</h3>
+            <p class="text-gray-600">Toutes nos pièces sont testées et garanties conformes aux normes CE d'origine.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">📦</div>
+            <h3 class="text-xl font-bold mb-2">Livraison Suivie</h3>
+            <p class="text-gray-600">Envoi direct avec numéro de suivi pour surveiller votre colis à chaque étape.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold mb-2">Zéro Intermédiaire</h3>
+            <p class="text-gray-600">En expédiant directement depuis l'usine, nous vous offrons les tarifs les plus bas du web.</p>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <main id="produits" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8 text-center">🔥 Nos Meilleures Ventes (Spécial Xiaomi)</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Produit 1 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+                <div class="p-6">
+                    <div class="bg-slate-100 h-48 rounded-lg mb-4 flex items-center justify-center text-5xl">🛑</div>
+                    <span class="text-xs font-bold bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full uppercase">Le Best-Seller</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Pneu Plein Alvéolé Anti-Crevaison</h3>
+                    <p class="text-gray-600 text-sm mb-4">Dites adieu aux crevaisons sur votre Xiaomi M365 / Pro. Structure en nid d'abeille pour amortir les chocs.</p>
+                </div>
+                <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between">
+                    <span class="text-2xl font-black text-slate-900">19,90 €</span>
+                    <button onclick="ajouterAuPanier('Pneu Plein Anti-Crevaison', 19.90)" class="bg-slate-900 hover:bg-cyan-500 hover:text-slate-900 text-white font-bold px-4 py-2 rounded-lg transition text-sm">Ajouter</button>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+                <div class="p-6">
+                    <div class="bg-slate-100 h-48 rounded-lg mb-4 flex items-center justify-center text-5xl">🚲</div>
+                    <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded-full uppercase">Indispensable</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Kit Garde-boue Arrière Renforcé</h3>
+                    <p class="text-gray-600 text-sm mb-4">Inclus le garde-boue robuste et son support métallique anti-vibrations pour éviter la casse.</p>
+                </div>
+                <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between">
+                    <span class="text-2xl font-black text-slate-900">14,90 €</span>
+                    <button onclick="ajouterAuPanier('Kit Garde-boue Renforcé', 14.90)" class="bg-slate-900 hover:bg-cyan-500 hover:text-slate-900 text-white font-bold px-4 py-2 rounded-lg transition text-sm">Ajouter</button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden flex flex-col justify-between">
+                <div class="p-6">
+                    <div class="bg-slate-100 h-48 rounded-lg mb-4 flex items-center justify-center text-5xl">⚡</div>
+                    <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-1 rounded-full uppercase">Sécurité CE</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Chargeur Rapide Haute Stabilité 42V 2A</h3>
+                    <p class="text-gray-600 text-sm mb-4">Chargeur de rechange avec indicateur LED intelligent. Protection intégrée contre les surchauffes.</p>
+                </div>
+                <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between">
+                    <span class="text-2xl font-black text-slate-900">24,90 €</span>
+                    <button onclick="ajouterAuPanier('Chargeur Rapide 42V', 24.90)" class="bg-slate-900 hover:bg-cyan-500 hover:text-slate-900 text-white font-bold px-4 py-2 rounded-lg transition text-sm">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Panier -->
+    <div id="modal-panier" class="modal fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-xl overflow-hidden p-6 relative">
+            <h3 class="text-2xl font-bold mb-4">Votre Commande</h3>
+            <div id="liste-panier" class="space-y-3 mb-6 max-h-60 overflow-y-auto">
+                <!-- Rempli par le script -->
+            </div>
+            <div class="flex justify-between items-center mb-6 pt-4 border-t border-gray-200 font-bold text-lg">
+                <span>Total :</span>
+                <span id="panier-total" class="text-cyan-600">0,00 €</span>
+            </div>
+            <div class="space-y-2">
+                <button onclick="passerCommande()" class="w-full bg-cyan-400 hover:bg-cyan-500 text-slate-900 font-bold py-3 rounded-xl transition text-center block">Payer par Carte / PayPal</button>
+                <button onclick="fermerPanier()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 rounded-xl transition">Continuer mes achats</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-slate-950 text-slate-400 py-12 text-center text-sm border-t border-slate-900">
+        <p class="mb-2 font-bold text-white">⚡ TrottFix © 2026 - Votre partenaire réparation de confiance.</p>
+        <p>Une question ? Contactez notre support : <span class="text-cyan-400">contact@trottfix.com</span></p>
+        <p class="text-xs text-slate-600 mt-4">Micro-entreprise - TVA non applicable, art. 293 B du CGI.</p>
+    </footer>
+
+    <!-- Logic de la boutique -->
+    <script>
+        let panier = [];
+
+        function ajouterAuPanier(nom, prix) {
+            panier.push({ nom, prix });
+            majPanier();
+        }
+
+        function majPanier() {
+            document.getElementById('panier-compteur').innerText = panier.length;
+            const listeHtml = document.getElementById('liste-panier');
+            const totalHtml = document.getElementById('panier-total');
+            
+            if(panier.length === 0) {
+                listeHtml.innerHTML = '<p class="text-gray-500">Votre panier est vide.</p>';
+                totalHtml.innerText = "0,00 €";
+                return;
+            }
+
+            let total = 0;
+            listeHtml.innerHTML = panier.map((item, index) => {
+                total += item.prix;
+                return `<div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg text-sm">
+                    <span>${item.nom}</span>
+                    <span class="font-semibold">${item.prix.toFixed(2)} €</span>
+                </div>`;
+            }).join('');
+            
+            totalHtml.innerText = total.toFixed(2) + " €";
+        }
+
+        function ouvrirPanier() {
